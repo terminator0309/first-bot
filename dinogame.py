@@ -4,7 +4,7 @@ import pyautogui as pag
 import numpy as np
 
 # Let's automate the dino game of chrome...!!
-
+#Warning !!! Works only on resolution of 1920x1080 in split screen mode.
 
 class DinoBot:
     def __init__(self):
@@ -13,6 +13,8 @@ class DinoBot:
         self.area = (self.dino_coords[0] + 105, self.dino_coords[1], self.dino_coords[0] + 235, self.dino_coords[1] + 3)
         self.jump_count = 0
 
+ 
+# this function is to tackle the increasing speed of the game. Not a good way, work in progress
     def set_dino_coords(self, x, y):
         if self.jump_count % 5 == 0:
             self.dino_coords = (self.dino_coords[0] + 15, self.dino_coords[1])
@@ -20,7 +22,7 @@ class DinoBot:
     def restart(self):
         pag.click(self.restart_coords)
         pag.keyDown('down')
-
+        
     def jump(self):
         pag.keyUp('down')
         pag.keyDown('space')
